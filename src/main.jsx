@@ -6,6 +6,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import Meals from './components/Meals/Meals.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,16 @@ const router = createBrowserRouter([
     loader: () =>
       fetch('https://www.themealdb.com/api/json/v1/1/categories.php'),
     errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/:categoryName',
+        element: <Meals></Meals>,
+        loader: ({ params }) =>
+          fetch(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`
+          ),
+      },
+    ],
   },
 ]);
 
