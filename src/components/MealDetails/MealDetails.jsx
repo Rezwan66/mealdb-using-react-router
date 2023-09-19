@@ -18,9 +18,9 @@ const MealDetails = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={strMealThumb} className="max-w-sm rounded-lg shadow-2xl" />
+          <img src={strMealThumb} className="max-w-md rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold mb-4">{strMeal}</h1>
             <p>
@@ -33,10 +33,12 @@ const MealDetails = () => {
             </p>
             <p className="py-6">{strInstructions}</p>
             <p>
-              <strong>Source:</strong> {strSource}
+              <strong>Source:</strong>{' '}
+              {strSource ? strSource : <i>Not available</i>}
             </p>
             <p className="mb-8">
-              <strong>YouTube:</strong> {strYoutube}
+              <strong>YouTube:</strong>{' '}
+              {strYoutube ? strYoutube : <i>Not available</i>}
             </p>
             <button onClick={() => navigate(-1)} className="btn btn-primary">
               Go Back

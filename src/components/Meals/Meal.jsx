@@ -16,7 +16,7 @@ const Meal = ({ meal }) => {
           </h1>
           <div className="card-actions justify-center mt-2">
             <Link to={`/meal/${idMeal}`}>
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn btn-primary">See Details</button>
             </Link>
           </div>
         </div>
