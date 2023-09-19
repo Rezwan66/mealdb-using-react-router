@@ -4,7 +4,10 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar bg-base-100 flex justify-center">
-        <Link to="/Beef" className="btn btn-ghost normal-case text-xl">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl border-2 border-base-content"
+        >
           MealsDB
         </Link>
       </div>

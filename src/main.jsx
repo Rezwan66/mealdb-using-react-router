@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import Meals from './components/Meals/Meals.jsx';
+import MealDetails from './components/MealDetails/MealDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,14 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(
             `https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`
+          ),
+      },
+      {
+        path: '/meal/:idMeal',
+        element: <MealDetails></MealDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.idMeal}`
           ),
       },
     ],
